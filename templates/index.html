@@ -1,151 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Orientações Operacionais - PMSC</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f2f2f2; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
-        h1 { color: #004080; }
-        input[type="text"] { width: 80%; padding: 10px; margin-right: 10px; }
-        button { padding: 10px 15px; cursor: pointer; background: #004080; color: white; border: none; border-radius: 4px; margin: 5px 5px 0 0; }
-        .resultado { margin-top: 30px; }
-        .orientacao {
-            background: #e6f0ff;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-left: 5px solid #004080;
-            border-radius: 4px;
-            user-select: text;
-            position: relative;
-        }
-        .titulo { font-weight: bold; font-size: 18px; margin-bottom: 10px; color: #00264d; }
-        .categoria { font-style: italic; color: #555; }
-        .conteudo { white-space: pre-line; margin-top: 10px; }
-        a { text-decoration: none; color: #004080; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orientações PMSC</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #002c66;
+    }
+
+    .orientacao {
+      background: #e6f0ff;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 5px solid #004080;
+      border-radius: 4px;
+    }
+
+    .titulo {
+      font-weight: bold;
+      font-size: 18px;
+      color: #00264d;
+    }
+
+    .categoria {
+      font-style: italic;
+      color: #555;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .conteudo {
+      white-space: pre-line;
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .titulo {
+        font-size: 17px;
+      }
+
+      .conteudo {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="container">
-    <h1>🔍 Orientações Operacionais - PMSC</h1>
-    <div style="text-align: right;">
-        <a href="/logout">🔒 Sair</a>
-        {% if tipo == 'admin' %} | <a href="/cadastro">➕ Cadastrar Usuário</a>{% endif %}
-    </div>
-
-    <label for="busca" style="display:none;">Digite o termo</label>
-    <input type="text" id="busca" placeholder="Digite o termo...">
-    <button onclick="buscar()">Buscar</button>
-    <button onclick="copiarTudo()">📋 Copiar Tudo</button>
-
-    {% if tipo == 'admin' %}
-    <hr>
-    <h2>➕ Adicionar Nova Orientação</h2>
-    <div class="nova-orientacao">
-        <input type="text" id="novoTitulo" placeholder="Título" style="width: 100%; margin-bottom: 5px; padding: 8px;">
-        <input type="text" id="novaCategoria" placeholder="Categoria" style="width: 100%; margin-bottom: 5px; padding: 8px;">
-        <textarea id="novoConteudo" placeholder="Conteúdo" style="width: 100%; height: 100px; padding: 8px;"></textarea>
-        <button onclick="adicionarOrientacao()">Salvar Orientação</button>
-    </div>
-    {% endif %}
-
-    <div class="resultado" id="resultado"></div>
+  <h1>📚 Orientações Operacionais - PMSC</h1>
+  <input type="text" id="busca" placeholder="Digite um termo...">
+  <button onclick="buscar()">Buscar</button>
+  <div id="resultado"></div>
 </div>
 
 <script>
-    function buscar() {
-        const termo = $('#busca').val().trim();
-        if (!termo) {
-            alert('Digite um termo para buscar.');
-            return;
-        }
-        $.ajax({
-            url: '/buscar',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ termo: termo }),
-            success: function(data) {
-                $('#resultado').empty();
-                if (data.length === 0) {
-                    $('#resultado').append('<p>Nenhuma orientação encontrada.</p>');
-                    return;
-                }
-                data.forEach(function(item, index) {
-                    const id = 'orientacao_' + index;
-                    $('#resultado').append(
-                        `<div class="orientacao" id="${id}">
-                            <div class="titulo">${item.titulo}</div>
-                            <div class="categoria">Categoria: ${item.categoria}</div>
-                            <div class="conteudo">${item.conteudo}</div>
-                            <button onclick="copiarIndividual('${id}')">📋 Copiar Esta</button>
-                            <button onclick="copiarSelecao()">📋 Copiar Seleção</button>
-                        </div>`
-                    );
-                });
-            }
-        });
+function buscar() {
+  const termo = $('#busca').val();
+  $.post('/buscar', JSON.stringify({ termo: termo }), function(data) {
+    $('#resultado').empty();
+    if (data.length === 0) {
+      $('#resultado').append('<p>Nenhuma orientação encontrada.</p>');
+      return;
     }
-
-    $('#busca').on('keypress', function(e) {
-        if (e.which === 13) buscar();
+    data.forEach(item => {
+      $('#resultado').append(
+        `<div class="orientacao">
+          <div class="titulo">${item.titulo}</div>
+          <div class="categoria">Categoria: ${item.categoria}</div>
+          <div class="conteudo">${item.conteudo}</div>
+        </div>`
+      );
     });
-
-    function adicionarOrientacao() {
-        const titulo = $('#novoTitulo').val().trim();
-        const categoria = $('#novaCategoria').val().trim();
-        const conteudo = $('#novoConteudo').val().trim();
-        if (!titulo || !categoria || !conteudo) {
-            alert("Preencha todos os campos!");
-            return;
-        }
-        $.ajax({
-            url: '/adicionar',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ titulo, categoria, conteudo }),
-            success: function(data) {
-                alert('Orientação adicionada com sucesso!');
-                $('#novoTitulo').val('');
-                $('#novaCategoria').val('');
-                $('#novoConteudo').val('');
-                buscar();
-            },
-            error: function() {
-                alert('Erro ao salvar orientação.');
-            }
-        });
-    }
-
-    function copiarTexto(texto) {
-        navigator.clipboard.writeText(texto).then(() => {
-            alert('Texto copiado para a área de transferência!');
-        }).catch(err => {
-            alert('Erro ao copiar: ' + err);
-        });
-    }
-
-    function copiarTudo() {
-        const textos = [];
-        document.querySelectorAll('.orientacao .conteudo').forEach(el => {
-            textos.push(el.innerText.trim());
-        });
-        copiarTexto(textos.join('\n\n'));
-    }
-
-    function copiarIndividual(id) {
-        const el = document.querySelector(`#${id} .conteudo`);
-        if (el) copiarTexto(el.innerText.trim());
-    }
-
-    function copiarSelecao() {
-        const selecionado = window.getSelection().toString().trim();
-        if (selecionado.length > 0) {
-            copiarTexto(selecionado);
-        } else {
-            alert("Você precisa selecionar um trecho com o mouse antes de clicar.");
-        }
-    }
+  }, 'json');
+}
 </script>
 </body>
 </html>
