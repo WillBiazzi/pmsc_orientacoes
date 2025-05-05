@@ -108,22 +108,28 @@
 <script>
 function buscar() {
   const termo = $('#busca').val();
-  $.post('/buscar', JSON.stringify({ termo: termo }), function(data) {
-    $('#resultado').empty();
-    if (data.length === 0) {
-      $('#resultado').append('<p>Nenhuma orientação encontrada.</p>');
-      return;
+  $.ajax({
+    url: '/buscar',
+    type: 'POST',
+    data: JSON.stringify({ termo: termo }),
+    contentType: 'application/json',
+    success: function(data) {
+      $('#resultado').empty();
+      if (data.length === 0) {
+        $('#resultado').append('<p>Nenhuma orientação encontrada.</p>');
+        return;
+      }
+      data.forEach(item => {
+        $('#resultado').append(
+          `<div class="orientacao">
+            <div class="titulo">${item.titulo}</div>
+            <div class="categoria">Categoria: ${item.categoria}</div>
+            <div class="conteudo">${item.conteudo}</div>
+          </div>`
+        );
+      });
     }
-    data.forEach(item => {
-      $('#resultado').append(
-        `<div class="orientacao">
-          <div class="titulo">${item.titulo}</div>
-          <div class="categoria">Categoria: ${item.categoria}</div>
-          <div class="conteudo">${item.conteudo}</div>
-        </div>`
-      );
-    });
-  }, 'json');
+  });
 }
 </script>
 </body>
