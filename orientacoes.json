@@ -1,53 +1,103 @@
 [
-    {
-        "titulo": "Procedimento em caso de furto",
-        "categoria": "Crimes Contra o Patrimônio",
-        "conteudo": "Ao chegar no local, isolar a área, verificar vestígios e registrar o BO-COP conforme POP padrão."
-    },
-    {
-        "titulo": "Abordagem a veículo em atitude suspeita",
-        "categoria": "Policiamento Ostensivo",
-        "conteudo": "Verificar placas no sistema, realizar busca pessoal e veicular. Usar cautela e apoio se necessário."
-    },
-    {
-        "titulo": "Encaminhamento de autor de ameaça",
-        "categoria": "Violência Doméstica",
-        "conteudo": "Preservar a vítima, coletar provas e encaminhar o autor à Delegacia com base na Lei Maria da Penha."
-    },
-    {
-        "titulo": "Mandado de prisão Regime Aberto",
-        "categoria": "prisão madado de prisão",
-        "conteudo": "Base Legal: Artigo 3º da Portaria Judicial sobre procedimentos em mandados de prisão definitiva no regime aberto.\n\n✅ Procedimentos Obrigatórios:\n\n1⃣ Orientação ao Condenado:\n- Informar claramente ao apenado que ele deverá comparecer no dia seguinte ou no próximo dia útil ao juízo responsável pela sua residência para iniciar o cumprimento do regime aberto.\n\n2⃣ Coleta Obrigatória do Endereço:\n- Coletar obrigatoriamente o endereço atualizado do apenado no ato da abordagem.\n\n3⃣ Certificação da Orientação:\n- Elaborar documento de certificação confirmando a orientação recebida pelo apenado. Documento deve ser assinado obrigatoriamente pelo apenado.\n\n📝 Texto padrão para certificação:\n\n\"Eu, _____ (nome completo), CPF nº _____, certifico que fui devidamente orientado pela Polícia Militar nesta data sobre a necessidade de comparecer ao juízo responsável pela minha residência no próximo dia útil para iniciar o cumprimento do regime aberto. Declaro também que informei corretamente meu endereço atualizado para fins judiciais.\"\n\n⚠️ Observação:\n- Essa certificação pode constar diretamente no relato individual do apenado ao lavrar o BO-PA. Neste caso, o documento emitido pelo BO-PA valerá como certificação para encaminhamento ao Cartório Judicial.\n\n4⃣ Encaminhamento ao Cartório Judicial:\n- Encaminhar imediatamente a cópia da certificação assinada (ou do documento emitido no BO-PA contendo a certificação) ao Cartório Judicial para juntada ao Processo de Execução Criminal (PEC).\n\n🚓 Resumo Prático:\n\nSituação: Cumprimento de mandado em regime aberto\nProvidências: \n- Orientar apenado\n- Coletar endereço atualizado\n- Certificação assinada ou registro no BO-PA\n- Encaminhar ao Cartório Judicial (a cargo da SETEC da unidade)\n\n📌 Observação Final:\nEm caso de recusa do apenado em assinar a certificação, registrar expressamente esta recusa no documento e colher assinaturas de duas testemunhas integrantes da guarnição.\n\n⚠️ Atenção:\nCumprir rigorosamente as normas legais vigentes e assegurar registro detalhado das ações em Boletim de Ocorrência."
-    }
+  {
+    "titulo": "Procedimento em caso de furto",
+    "categoria": "Crimes Contra o Patrimônio",
+    "palavras_chave": [
+      "furto",
+      "crime contra patrimônio",
+      "arrombamento",
+      "BO-COP"
+    ],
+    "conteudo": "Ao chegar no local, isolar a área, verificar vestígios e registrar o BO-COP conforme POP padrão."
+  },
+  {
+    "titulo": "Abordagem a veículo em atitude suspeita",
+    "categoria": "Policiamento Ostensivo",
+    "palavras_chave": [
+      "abordagem",
+      "veículo suspeito",
+      "busca veicular",
+      "checagem placas"
+    ],
+    "conteudo": "Verificar placas no sistema, realizar busca pessoal e veicular. Usar cautela e apoio se necessário."
+  },
+  {
+    "titulo": "Encaminhamento de autor de ameaça",
+    "categoria": "Violência Doméstica",
+    "palavras_chave": [
+      "ameaça",
+      "encaminhamento",
+      "lei maria da penha",
+      "vítima"
+    ],
+    "conteudo": "Preservar a vítima, coletar provas e encaminhar o autor à Delegacia com base na Lei Maria da Penha."
+  },
+  {
+    "titulo": "Mandado de prisão Regime Aberto",
+    "categoria": "prisão madado de prisão",
+    "palavras_chave": [
+      "mandado de prisão",
+      "regime aberto",
+      "cumprimento",
+      "certificação"
+    ],
+    "conteudo": "Base Legal: Artigo 3º da Portaria Judicial sobre procedimentos em mandados de prisão definitiva no regime aberto.\n\n✅ Procedimentos Obrigatórios:\n\n1⃣ Orientação ao Condenado:\n- Informar claramente ao apenado que ele deverá comparecer no dia seguinte ou no próximo dia útil ao juízo responsável pela sua residência para iniciar o cumprimento do regime aberto.\n\n2⃣ Coleta Obrigatória do Endereço:\n- Coletar obrigatoriamente o endereço atualizado do apenado no ato da abordagem.\n\n3⃣ Certificação da Orientação:\n- Elaborar documento de certificação confirmando a orientação recebida pelo apenado. Documento deve ser assinado obrigatoriamente pelo apenado.\n\n📝 Texto padrão para certificação:\n\n\"Eu, _____ (nome completo), CPF nº _____, certifico que fui devidamente orientado pela Polícia Militar nesta data sobre a necessidade de comparecer ao juízo responsável pela minha residência no próximo dia útil para iniciar o cumprimento do regime aberto. Declaro também que informei corretamente meu endereço atualizado para fins judiciais.\"\n\n⚠️ Observação:\n- Essa certificação pode constar diretamente no relato individual do apenado ao lavrar o BO-PA. Neste caso, o documento emitido pelo BO-PA valerá como certificação para encaminhamento ao Cartório Judicial.\n\n4⃣ Encaminhamento ao Cartório Judicial:\n- Encaminhar imediatamente a cópia da certificação assinada (ou do documento emitido no BO-PA contendo a certificação) ao Cartório Judicial para juntada ao Processo de Execução Criminal (PEC).\n\n🚓 Resumo Prático:\n\nSituação: Cumprimento de mandado em regime aberto\nProvidências: \n- Orientar apenado\n- Coletar endereço atualizado\n- Certificação assinada ou registro no BO-PA\n- Encaminhar ao Cartório Judicial (a cargo da SETEC da unidade)\n\n📌 Observação Final:\nEm caso de recusa do apenado em assinar a certificação, registrar expressamente esta recusa no documento e colher assinaturas de duas testemunhas integrantes da guarnição.\n\n⚠️ Atenção:\nCumprir rigorosamente as normas legais vigentes e assegurar registro detalhado das ações em Boletim de Ocorrência."
+  },
   {
     "categoria": "Trânsito",
     "titulo": "Acidente com Vítima – Procedimentos e Relato",
-    "palavras_chave": ["acidente com vítima", "batida com ferido", "acidente trânsito", "relato acidente"],
+    "palavras_chave": [
+      "acidente com vítima",
+      "batida com ferido",
+      "acidente trânsito",
+      "relato acidente"
+    ],
     "conteudo": "📢 *ORIENTAÇÃO OPERACIONAL À TROPA*\n\n*Tema:* Acidente de Trânsito com Vítima\n\n✅ *Procedimentos obrigatórios:*\n1⃣ *Preservar o local* – Evitar alteração da posição dos veículos.\n2⃣ *Acionar socorro* – Bombeiros ou SAMU, conforme gravidade.\n3⃣ *Identificar os envolvidos* – Nome, CPF, CNH, CRLV.\n4⃣ *Testemunhas* – Registrar dados de pelo menos uma, se houver.\n5⃣ *Fotos do local* – Viaturas devem fazer registro para subsidiar relato e posterior perícia, se necessário.\n6⃣ *Lavratura do BO-PA* com relato objetivo, descrição dos danos e possível dinâmica do acidente (sem juízo de valor sobre culpa).\n\n📌 *Lembrar:* Em caso de óbito, isolar o local e acionar a Polícia Científica."
   },
   {
     "categoria": "Trânsito",
     "titulo": "Condução por Embriaguez sem Etilômetro",
-    "palavras_chave": ["embriaguez", "alcool", "etilômetro", "recusa bafômetro"],
+    "palavras_chave": [
+      "embriaguez",
+      "alcool",
+      "etilômetro",
+      "recusa bafômetro"
+    ],
     "conteudo": "📢 *ORIENTAÇÃO OPERACIONAL À TROPA*\n\n*Tema:* Embriaguez ao volante com recusa do etilômetro\n\n✅ *Procedimento padrão:*\n1⃣ *Verificar sinais visíveis de embriaguez* (ex: odor etílico, fala arrastada, olhos vermelhos, desequilíbrio).\n2⃣ *Registrar no relato individual* TODOS os sinais observados.\n3⃣ *Colher testemunho de pelo menos um PM da guarnição* ou terceiro imparcial.\n4⃣ *Informar o condutor sobre os artigos 165-A e 306 do CTB*.\n5⃣ *Recusa ao etilômetro* permite autuação com base em sinais evidentes e testemunhos, conforme Art. 277, §3º do CTB.\n\n📌 *Orientação:* Em caso de dúvida, conduzir para avaliação médica (se disponível)."
   },
   {
     "categoria": "Trânsito",
     "titulo": "Licenciamento Vencido – Quando Não Recolher",
-    "palavras_chave": ["licenciamento vencido", "veículo", "remoção", "não recolher"],
+    "palavras_chave": [
+      "licenciamento vencido",
+      "veículo",
+      "remoção",
+      "não recolher"
+    ],
     "conteudo": "📢 *ORIENTAÇÃO OPERACIONAL À TROPA*\n\n*Tema:* Veículo com licenciamento vencido – conduta padrão\n\n✅ *Conforme CTB art. 230, V:*\nO veículo em circulação com licenciamento vencido está sujeito à remoção.\n\n❗ *Exceção operacional (orientação local):*\n- Caso o comando local determine que veículos com licenciamento vencido *não sejam recolhidos*, a guarnição deve apenas lavrar o AIT, orientar o condutor e liberar o veículo.\n\n📌 *Importante:* Essa diretriz deve estar registrada em Ordem de Serviço ou orientação expressa do comando da OPM para respaldar a guarnição."
   },
   {
     "categoria": "Trânsito",
     "titulo": "Veículo com Restrição de Leilão ou Baixa",
-    "palavras_chave": ["leilão", "baixa", "restrição", "veículo", "irregularidade"],
+    "palavras_chave": [
+      "leilão",
+      "baixa",
+      "restrição",
+      "veículo",
+      "irregularidade"
+    ],
     "conteudo": "📢 *ORIENTAÇÃO OPERACIONAL À TROPA*\n\n*Tema:* Veículo com restrição por leilão ou baixa\n\n✅ *Conduta da guarnição:*\n1⃣ Verificar se há restrição administrativa ativa no sistema.\n2⃣ Se o veículo constar como 'irrecuperável' ou 'baixa permanente':\n➡ Recolher ao pátio e lavrar AIT por infração ao art. 230, V do CTB.\n3⃣ Se constar apenas como 'vendido em leilão':\n➡ Verificar se houve regularização (novo CRLV, vistoria, transferência).\n➡ Se não regularizado, orientar e lavrar AIT conforme art. 233 ou 123 do CTB.\n\n📌 *Importante:* A restrição de leilão não implica recolhimento imediato, exceto se constar como sucata/irrecuperável."
   },
   {
     "categoria": "Trânsito",
     "titulo": "AIT por Recusa de Identificação",
-    "palavras_chave": ["recusa", "identificação", "documento", "condutor", "ait"],
+    "palavras_chave": [
+      "recusa",
+      "identificação",
+      "documento",
+      "condutor",
+      "ait"
+    ],
     "conteudo": "📢 *ORIENTAÇÃO OPERACIONAL À TROPA*\n\n*Tema:* Condutor se recusa a se identificar\n\n✅ *Conduta legal conforme art. 238 e 232 do CTB:*\n1⃣ *Persistência na recusa* após orientado = lavrar AIT por *recusa de identificação*.\n2⃣ Conduzir o cidadão para a Delegacia por possível *desobediência* (art. 330 CP) e *desacato*, se houver ofensa.\n3⃣ Informar que a recusa à identificação pode configurar *crime e infração de trânsito simultaneamente*.\n\n📌 *Importante:* Sempre registrar o comportamento do abordado no relato individual com riqueza de detalhes."
   }
 ]
-
