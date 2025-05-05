@@ -1,7 +1,9 @@
+
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 import json
 import os
 import hashlib
+import unicodedata
 
 app = Flask(__name__)
 app.secret_key = 'segredo-top-seguro'
@@ -13,6 +15,13 @@ ARQUIVO_USUARIOS = 'usuarios.json'
 
 def hash_senha(senha):
     return hashlib.sha256(senha.encode()).hexdigest()
+
+def normalizar(texto):
+    """Remove acentos e converte para minúsculo"""
+    return ''.join(
+        c for c in unicodedata.normalize('NFD', texto)
+        if unicodedata.category(c) != 'Mn'
+    ).lower()
 
 def carregar_orientacoes():
     if os.path.exists(ARQUIVO_ORIENTACOES):
@@ -47,9 +56,19 @@ def index():
 @app.route('/buscar', methods=['POST'])
 def buscar():
     data = request.get_json()
-    termo = data.get('termo', '').lower()
-    resultados = [o for o in db_orientacoes if
-                  termo in o['titulo'].lower() or termo in o['categoria'].lower() or termo in o['conteudo'].lower()]
+    termo = normalizar(data.get('termo', ''))
+    resultados = []
+
+    for o in db_orientacoes:
+        texto = ' '.join([
+            o.get('titulo', ''),
+            o.get('categoria', ''),
+            o.get('conteudo', ''),
+            ' '.join(o.get('palavras_chave', []))
+        ])
+        if termo in normalizar(texto):
+            resultados.append(o)
+
     return jsonify(resultados)
 
 @app.route('/adicionar', methods=['POST'])
@@ -116,9 +135,7 @@ def cadastro():
         return render_template('cadastro.html', sucesso='Usuário cadastrado com sucesso!')
 
     return render_template('cadastro.html')
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
