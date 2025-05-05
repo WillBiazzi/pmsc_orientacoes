@@ -39,6 +39,7 @@
       width: 100%;
       padding: 14px;
       font-size: 16px;
+      margin-bottom: 10px;
       background: #004080;
       color: white;
       border: none;
@@ -95,19 +96,35 @@
         font-size: 15px;
       }
     }
+
+    #topo {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #topo button {
+      width: auto;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
 <div class="container">
   <h1>📚 Orientações Operacionais - PMSC</h1>
   <input type="text" id="busca" placeholder="Digite um termo...">
-  <button onclick="buscar()">Buscar</button>
+  <button onclick="buscar()">🔍 Buscar</button>
+  <button onclick="limpar()">🧹 Limpar Busca</button>
   <div id="resultado"></div>
+  <div id="topo">
+    <button onclick="voltarAoTopo()">🔝 Voltar ao Topo</button>
+  </div>
 </div>
 
 <script>
 function buscar() {
   const termo = $('#busca').val();
+  if (!termo.trim()) return;
   $.ajax({
     url: '/buscar',
     type: 'POST',
@@ -130,6 +147,15 @@ function buscar() {
       });
     }
   });
+}
+
+function limpar() {
+  $('#busca').val('');
+  $('#resultado').empty();
+}
+
+function voltarAoTopo() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
